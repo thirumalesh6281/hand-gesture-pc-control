@@ -1,8 +1,30 @@
 import cv2
-import mediapipe as mp
 import numpy as np
 import time
 import os
+
+# Try to import mediapipe with detailed error handling
+try:
+    import mediapipe as mp
+    MEDIAPIPE_AVAILABLE = True
+    print("MediaPipe loaded successfully")
+except (ImportError, OSError) as e:
+    MEDIAPIPE_AVAILABLE = False
+    print(f"MediaPipe failed to load: {e}")
+    print("\n=== TROUBLESHOOTING MEDIAPIPE ON WINDOWS ===")
+    print("This is a common issue on Windows. Try these solutions:")
+    print("1. Install Visual C++ Redistributable:")
+    print("   Download from: https://aka.ms/vs/17/release/vc_redist.x64.exe")
+    print("2. Try a different MediaPipe version:")
+    print("   pip uninstall mediapipe")
+    print("   pip install mediapipe==0.10.0")
+    print("3. Use conda instead of pip:")
+    print("   conda install -c conda-forge mediapipe")
+    print("4. Try Python 3.9-3.11 (avoid 3.12+)")
+    print("5. Reinstall in a fresh virtual environment")
+    print("6. See INSTALL_INSTRUCTIONS.txt for detailed steps")
+    print("==========================================\n")
+    exit(1)
 
 # Try to import pyautogui, fallback to demo mode if it fails
 try:

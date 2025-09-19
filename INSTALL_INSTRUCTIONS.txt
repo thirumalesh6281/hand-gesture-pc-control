@@ -1,0 +1,67 @@
+HAND GESTURE CONTROL - INSTALLATION INSTRUCTIONS
+==============================================
+
+OPTION 1: AUTOMATIC SETUP (RECOMMENDED FOR WINDOWS)
+---------------------------------------------------
+1. Download all files to your computer
+2. Open Command Prompt or PowerShell as Administrator
+3. Navigate to the project folder
+4. Run: python setup_windows.py
+5. Follow the on-screen instructions
+
+OPTION 2: MANUAL INSTALLATION
+-----------------------------
+1. Create a virtual environment:
+   python -m venv venv
+   
+2. Activate the virtual environment:
+   Windows: venv\Scripts\activate
+   Mac/Linux: source venv/bin/activate
+
+3. Install dependencies:
+   pip install -r requirements.txt
+
+4. If MediaPipe fails on Windows, try:
+   pip uninstall mediapipe
+   pip install mediapipe==0.10.0
+
+TROUBLESHOOTING MEDIAPIPE DLL ERROR ON WINDOWS:
+----------------------------------------------
+If you get "DLL load failed" error:
+
+1. Install Visual C++ Redistributable:
+   Download: https://aka.ms/vs/17/release/vc_redist.x64.exe
+   
+2. Try different MediaPipe versions:
+   pip uninstall mediapipe
+   pip install mediapipe==0.10.0
+   
+3. Use Conda instead of pip:
+   conda install -c conda-forge mediapipe
+   
+4. Use Python 3.9-3.11 (avoid 3.12+)
+
+5. Fresh virtual environment:
+   Delete venv folder and recreate it
+
+RUNNING THE APPLICATION:
+-----------------------
+1. Connect a webcam to your computer
+2. Run: python gesture_control.py
+3. Position your hand in front of the camera
+4. Use gestures to control your computer:
+   - Move hand = Move cursor
+   - Fist = Left click
+   - Open palm = Right click
+   - Peace sign + hand movement = Scroll
+   - Point up = Play/Pause
+   - Point down = Next track
+5. Press 'q' in the camera window to quit
+
+SYSTEM REQUIREMENTS:
+-------------------
+- Python 3.8-3.11 (3.9-3.11 recommended)
+- Windows 10/11, macOS, or Linux
+- Webcam
+- At least 4GB RAM
+- Visual C++ Redistributable (Windows)
